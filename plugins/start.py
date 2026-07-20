@@ -34,7 +34,7 @@ async def start_command(client: Client, message: Message):
             )
         )
 
-    m = await message.reply_text("♻️")
+    m = await message.reply_text("ᴡᴀɪᴛ....")
     await asyncio.sleep(0.5)
     await m.edit_text("<code>Checking.</code>")
     await asyncio.sleep(0.4)
@@ -71,14 +71,14 @@ async def start_command(client: Client, message: Message):
                 print(f"Error parsing invite link: {e}, string: {string}")
                 return await message.reply_text(
                     "<b>❌ Invalid link format!</b>\n\n"
-                    "<i>Contact @IntrovertSama for support.</i>"
+                    "<i>Contact @EternalsHelplineBot for support.</i>"
                 )
     
             # Check if link exists in database
             if not await db.invite_link_exist(ch_id):
                 return await message.reply_text(
                     "<b>🚫 This link has been revoked by admins!</b>\n\n"
-                    "<i>Contact @IntrovertSama for more information.</i>"
+                    "<i>Contact @EternalsHelplineBot for more information.</i>"
                 )
     
             try:
@@ -120,14 +120,9 @@ async def start_command(client: Client, message: Message):
                     
                     # Send invite link to user
                     invite_msg = await message.reply_text(
-                        f"<b>🎉 Here's your invite link!</b>\n\n"
-                        f"<b>Channel:</b> {chat.title}\n"
-                        f"<b>Type:</b> {'🟢 Join Request' if mode == 'request' else '🔵 Direct Invite'}"
-                        f"{expiry_msg}\n\n"
-                        f"<b>🔗 Invite Link:</b>\n<code>{invite_link}</code>\n\n"
-                        f"<i>Click the button below to join!</i>",
+                        f"<b><blockquote>ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ! ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ᴛᴏ ᴘʀᴏᴄᴇᴇᴅ!</blockquote></b>",
                         reply_markup=InlineKeyboardMarkup([
-                            [InlineKeyboardButton("📢 Join Channel", url=invite_link)]
+                            [InlineKeyboardButton("𝙹𝙾𝙸𝙽 𝙲𝙷𝙰𝙽𝙽𝙴𝙻", url=invite_link)]
                         ]),
                         disable_web_page_preview=True
                     )
@@ -135,8 +130,8 @@ async def start_command(client: Client, message: Message):
                     # Auto-delete the invite link message if enabled
                     if FILE_AUTO_DELETE > 0:
                         notification_msg = await message.reply(
-                            f"<b>Tʜɪs Iɴᴠɪᴛᴇ Lɪɴᴋ ᴡɪʟʟ ʙᴇ Dᴇʟᴇᴛᴇᴅ ɪɴ {get_exp_time(FILE_AUTO_DELETE)}. ᴊᴏɪɴ ᴛʜᴇ ᴄʜᴀɴɴᴇʟ ʙᴇғᴏʀᴇ ɪᴛ ɢᴇᴛs Dᴇʟᴇᴛᴇᴅ.</b>"
-                        )
+                            f"<b><blockquote>» ᴛʜɪs ᴍᴇssᴀɢᴇ ᴡɪʟʟ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴀᴜᴛᴏ ᴅᴇʟᴇᴛᴇ ɪɴ ғᴇᴡ ᴍɪɴᴜᴛᴇs. ɪғ ᴛʜᴇ ʟɪɴᴋ ɪs ᴇxᴘɪʀᴇᴅ sᴏ ᴛʀʏ ᴀɢᴀɪɴ.</blockquote></b>")
+
                         
                         await asyncio.sleep(FILE_AUTO_DELETE)
                         
@@ -151,12 +146,12 @@ async def start_command(client: Client, message: Message):
                         reload_url = f"https://t.me/{client.username}?start={enc_id}"
                         
                         keyboard = InlineKeyboardMarkup(
-                            [[InlineKeyboardButton("ɢᴇᴛ ʟɪɴᴋ ᴀɢᴀɪɴ!", url=reload_url)]]
+                            [[InlineKeyboardButton("ɢᴇᴛ ᴀɢᴀɪɴ!", url=reload_url),url=reload_url),InlineKeyboardButton("ᴄʟᴏꜱᴇ", callback_data='close')]]
                         )
                         
                         try:
                             await notification_msg.edit(
-                                "<b>ʏᴏᴜʀ ɪɴᴠɪᴛᴇ ʟɪɴᴋ ɪs sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ !!\n\nᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ ᴅᴇʟᴇᴛᴇᴅ ɪɴᴠɪᴛᴇ ʟɪɴᴋ 👇</b>",
+                                "<b>›› ᴘʀᴇᴠɪᴏᴜs ᴍᴇssᴀɢᴇ ᴡᴀs ᴅᴇʟᴇᴛᴇᴅ<blockquote>ɪғ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ɢᴇᴛ ᴛʜᴇ ᴀɢᴀɪɴ, ᴛʜᴇɴ ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ ᴅᴇʟᴇᴛᴇᴅ ᴍᴇssᴀɢᴇ. ᴇʟsᴇ ᴄʟᴏsᴇ ᴛʜɪs ᴍᴇssᴀɢᴇ.</blockquote></b>",
                                 reply_markup=keyboard
                             )
                         except Exception as e:
@@ -167,7 +162,7 @@ async def start_command(client: Client, message: Message):
                 except ChatAdminRequired:
                     await message.reply_text(
                         "<b>❌ Bot is not an admin in this channel!</b>\n\n"
-                        "<i>Contact @IntrovertSama to fix this issue.</i>"
+                        "<i>Contact @EternalsHelplineBot to fix this issue.</i>"
                     )
                     return
                     
@@ -176,14 +171,14 @@ async def start_command(client: Client, message: Message):
                     await message.reply_text(
                         f"<b>❌ Failed to generate invite link!</b>\n\n"
                         f"<b>Error:</b> <code>{str(e)}</code>\n\n"
-                        f"<i>Contact @IntrovertSama for support.</i>"
+                        f"<i>Contact @EternalsHelplineBot for support.</i>"
                     )
                     return
                     
             except ChannelPrivate:
                 await message.reply_text(
                     "<b>❌ Bot is not a member of this channel!</b>\n\n"
-                    "<i>Contact @IntrovertSama to fix this issue.</i>"
+                    "<i>Contact @EternalsHelplineBot to fix this issue.</i>"
                 )
                 return
                 
@@ -199,7 +194,7 @@ async def start_command(client: Client, message: Message):
                 await message.reply_text(
                     f"<b>❌ An error occurred!</b>\n\n"
                     f"<b>Error:</b> <code>{str(e)}</code>\n\n"
-                    f"<i>Contact @IntrovertSama for support.</i>"
+                    f"<i>Contact @EternalsHelplineBot for support.</i>"
                 )
                 return
         
@@ -264,7 +259,7 @@ async def start_command(client: Client, message: Message):
 
         if FILE_AUTO_DELETE > 0:
             notification_msg = await message.reply(
-                f"<b>Tʜɪs Fɪʟᴇ ᴡɪʟʟ ʙᴇ Dᴇʟᴇᴛᴇᴅ ɪɴ  {get_exp_time(FILE_AUTO_DELETE)}. Pʟᴇᴀsᴇ sᴀᴠᴇ ᴏʀ ғᴏʀᴡᴀʀᴅ ɪᴛ ᴛᴏ ʏᴏᴜʀ sᴀᴠᴇᴅ ᴍᴇssᴀɢᴇs ʙᴇғᴏʀᴇ ɪᴛ ɢᴇᴛs Dᴇʟᴇᴛᴇᴅ.</b>"
+                f"<b>»ᴛʜɪs ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ɪɴ {get_exp_time(FILE_AUTO_DELETE)}<blockquote>ᴘʟᴇᴀsᴇ sᴀᴠᴇ ᴏʀ ғᴏʀᴡᴀʀᴅ ɪᴛ ᴛᴏ ʏᴏᴜʀ sᴀᴠᴇᴅ ᴍᴇssᴀɢᴇs ʙᴇғᴏʀᴇ ɪᴛ ɢᴇᴛs ᴅᴇʟᴇᴛᴇᴅ.</blockquote></b>"
             )
 
             await asyncio.sleep(FILE_AUTO_DELETE)
