@@ -282,7 +282,7 @@ async def start_command(client: Client, message: Message):
                 ) if reload_url else None
 
                 await notification_msg.edit(
-                    "<b>ʏᴏᴜʀ ᴠɪᴅᴇᴏ / ꜰɪʟᴇ ɪꜱ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ !!\n\nᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ ᴅᴇʟᴇᴛᴇᴅ ᴠɪᴅᴇᴏ / ꜰɪʟᴇ 👇</b>",
+                    "<b>›› ᴘʀᴇᴠɪᴏᴜs ᴍᴇssᴀɢᴇ ᴡᴀs ᴅᴇʟᴇᴛᴇᴅ<blockquote>ɪғ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ɢᴇᴛ ᴛʜᴇ ᴀɢᴀɪɴ, ᴛʜᴇɴ ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ ᴅᴇʟᴇᴛᴇᴅ ᴍᴇssᴀɢᴇ. ᴇʟsᴇ ᴄʟᴏsᴇ ᴛʜɪs ᴍᴇssᴀɢᴇ.</blockquote></b>",
                     reply_markup=keyboard
                 )
             except Exception as e:
@@ -291,7 +291,7 @@ async def start_command(client: Client, message: Message):
         # No arguments - show welcome message
         reply_markup = InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("• ᴍᴏʀᴇ ᴄʜᴀɴɴᴇʟs •", url="https://t.me/as_networks")],
+                [InlineKeyboardButton("• ᴍᴏʀᴇ ᴄʜᴀɴɴᴇʟs •", url="https://t.me/AnimeNexusNetwork/158")],
                 [
                     InlineKeyboardButton("• ᴀʙᴏᴜᴛ", callback_data = "about"),
                     InlineKeyboardButton('ʜᴇʟᴘ •', callback_data = "help")
@@ -382,7 +382,7 @@ async def not_joined(client: Client, message: Message):
                 except Exception as e:
                     print(f"Error with chat {chat_id}: {e}")
                     return await temp.edit(
-                        f"<b><i>! Eʀʀᴏʀ, Cᴏɴᴛᴀᴄᴛ ᴅᴇᴠᴇʟᴏᴘᴇʀ ᴛᴏ sᴏʟᴠᴇ ᴛʜᴇ ɪssᴜᴇs @rohit_1888</i></b>\n"
+                        f"<b>! Eʀʀᴏʀ, Cᴏɴᴛᴀᴄᴛ ᴅᴇᴠᴇʟᴏᴘᴇʀ ᴛᴏ sᴏʟᴠᴇ ᴛʜᴇ ɪssᴜᴇs @EternalsHelplineBot</b>\n"
                         f"<blockquote expandable><b>Rᴇᴀsᴏɴ:</b> {e}</blockquote>"
                     )
 
@@ -390,7 +390,7 @@ async def not_joined(client: Client, message: Message):
         try:
             buttons.append([
                 InlineKeyboardButton(
-                    text='♻️ Tʀʏ Aɢᴀɪɴ',
+                    text='♻️ᴛʀʏ ᴀɢᴀɪɴ',
                     url=f"https://t.me/{client.username}?start={message.command[1]}"
                 )
             ])
@@ -412,7 +412,7 @@ async def not_joined(client: Client, message: Message):
     except Exception as e:
         print(f"Final Error: {e}")
         await temp.edit(
-            f"<b><i>! Eʀʀᴏʀ, Cᴏɴᴛᴀᴄᴛ ᴅᴇᴠᴇʟᴏᴘᴇʀ ᴛᴏ sᴏʟᴠᴇ ᴛʜᴇ ɪssᴜᴇs @rohit_1888</i></b>\n"
+            f"<b><i>! Eʀʀᴏʀ, Cᴏɴᴛᴀᴄᴛ ᴅᴇᴠᴇʟᴏᴘᴇʀ ᴛᴏ sᴏʟᴠᴇ ᴛʜᴇ ɪssᴜᴇs @EternalsHelplineBot</i></b>\n"
             f"<blockquote expandable><b>Rᴇᴀsᴏɴ:</b> {e}</blockquote>"
         )
         await temp.delete
