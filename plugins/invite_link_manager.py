@@ -502,10 +502,7 @@ async def handle_join_request_approval(client: Client, chat_join_request):
                 try:
                     await client.send_message(
                         user_id,
-                        f"<b>🎉 Request Approved!</b>\n\n"
-                        f"<b>Your join request has been approved for:</b>\n"
-                        f"<b>{ch_name}</b>\n\n"
-                        f"<i>You can now access the channel content.</i>",
+                        f"ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ ɪs ᴀᴘᴘʀᴏᴠᴇᴅ.",
                         disable_web_page_preview=True
                     )
                 except Exception as e:
